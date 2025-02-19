@@ -1,7 +1,7 @@
 import { IRequestBody } from "./api-request.model"
 
 export interface IHouse {
-    id?: string
+    id: string
     type: string
     links: ILinks
     attributes: IHouseAttributes

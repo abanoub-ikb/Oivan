@@ -1,7 +1,7 @@
 
 <div class="input-container">
     @if (label) {
-      <label class="input-label">{{ label }}</label>
+      <label class="input-label" [class.disabled]="disabled">{{ label }}</label>
     }
     <input
       [type]="type"

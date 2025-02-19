@@ -23,9 +23,9 @@ export class InputComponent implements ControlValueAccessor {
   @Input() label: string = '';
   @Input() errorMessage: string|null = '';
   @Input() class:string = '';
+  @Input() value?:string|null = ''
   @Output() change = new EventEmitter<Event>();
-
-  value: string = '';
+  
   onChange: any = () => {};
   onTouched: any = () => {}; 
 

@@ -5,7 +5,6 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class ToastService {
-  // BehaviorSubject to manage toast visibility
   private isVisible = new BehaviorSubject<boolean>(false);
   private timer: ReturnType<typeof setTimeout> | null = null;
   isVisible$ = this.isVisible.asObservable();
@@ -20,7 +19,7 @@ export class ToastService {
 
     this.timer = setTimeout(() => {
       this.hideToast();
-    }, 5000);
+    }, 1500);
   }
 
 

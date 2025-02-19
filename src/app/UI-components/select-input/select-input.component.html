@@ -1,18 +1,25 @@
 @if (label) {
 <label class="input-label">{{ label }}</label>
 }
-<select
-  [(ngModel)]="value"
-  [disabled]="disabled"
-  [required]="required"
-  (ngModelChange)="onChange($event)"
-  class="border rounded-sm p-1 outline-none w-full"
-  [class]="class"
-  [name]="name"
->
-  @if (placeHolder) {
-  <option value="" disabled selected>--{{ placeHolder }}--</option>
-  } @for (option of options; track $index;) {
-  <option [selected]="!placeHolder && $first" [value]="option">{{ option }}</option>
-  }
-</select>
+<div class="select">
+  <select
+    [(ngModel)]="value"
+    [disabled]="disabled"
+    [required]="required"
+    (ngModelChange)="onChange($event)"
+    class="border rounded-sm p-1 outline-none w-full"
+    [class]="class"
+    [name]="name"
+    [class.apperance_none]="value"
+    #input
+  >
+    @if (placeHolder) {
+    <option value="" disabled selected>--{{ placeHolder }}--</option>
+    } @for (option of options; track $index;) {
+    <option [selected]="!placeHolder && $first" [value]="option">
+      {{ option }}
+    </option>
+    }
+  </select>
+  <button title="reset" (click)="reset(input)" [hidden]="!value" class="cancel">x</button>
+</div>

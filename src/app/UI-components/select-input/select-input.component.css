@@ -1,0 +1,23 @@
+.select{
+    position: relative;
+    cursor: pointer;
+}
+
+ .cancel{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 5px;
+    padding: 1px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: var(--error-color);
+}
+
+.apperance_none{
+    appearance: none;
+    cursor: pointer;
+}

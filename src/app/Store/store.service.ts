@@ -67,7 +67,10 @@ export class StoreService {
     this.houses.next(updatedHouses);
   };
 
-  getHouseById(houseNumber: string): IHouse['attributes'] | undefined {
-    return this.houses.value.find((house) => house.attributes.house_number == houseNumber)?.attributes;
+  getHouseById(houseNumber: string | null): IHouse | undefined {
+    if(houseNumber){
+      return this.houses.value.find((house) => house.attributes.house_number == houseNumber);
+    };
+    return undefined
   };
 }

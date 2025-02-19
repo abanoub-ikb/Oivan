@@ -1,3 +1,50 @@
 @if (houseNumber) {
 <app-breadcrumb [currentLocation]="houseNumber" />
+<form [formGroup]="houseForm" (ngSubmit)="onSubmit()">
+  <div class="create-form">
+    <app-input
+      [value]="houseForm.get('house_number')?.value"
+      label="House Number"
+      [disabled]="true"
+    />
+    <app-input
+      class="form-control"
+      formControlName="block_number"
+      label="Block Number"
+      [errorMessage]="getErrorMessage('block_number')"
+    />
+    <app-input
+      formControlName="land_number"
+      label="Land Number"
+      [errorMessage]="getErrorMessage('land_number')"
+    />
+    <app-input
+      formControlName="price"
+      label="Price"
+      [type]="'number'"
+      [errorMessage]="getErrorMessage('price')"
+    />
+    <app-select-input
+      formControlName="house_type"
+      [options]="houseType"
+      label="House Type"
+      [errorMessage]="getErrorMessage('house_type')"
+    />
+    <app-select-input
+      formControlName="model"
+      [options]="(models$ | async) || []"
+      label="House Model"
+      [errorMessage]="getErrorMessage('model')"
+    />
+    <app-select-input
+      formControlName="status"
+      [options]="status"
+      label="Status"
+      [errorMessage]="getErrorMessage('status')"
+    />
+  </div>
+  <button class="btn bg-[var(--primary-color)] p-2 rounded-sm" type="submit">
+    Create House
+  </button>
+</form>
 }

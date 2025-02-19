@@ -86,15 +86,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
   }
 
-  clearFilters(): void {
-    this.filters = {
-      block_number: '',
-      land_number: '',
-      min: '',
-      max: '',
-    };
-    this.houses$.next(this.houses$.value);
-  };
+
 
   filterHouses() {
     this.houses$.next(this.houses$.value);

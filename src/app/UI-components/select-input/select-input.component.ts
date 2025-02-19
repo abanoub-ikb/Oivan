@@ -24,11 +24,11 @@ export class SelectInputComponent implements ControlValueAccessor {
   @Input() errorMessage: string = '';
   @Input() class: string = '';
   @Input() name: string = '';
-  @Output() change = new EventEmitter<string>(); 
+  @Output() change = new EventEmitter<string>();
 
   value: string = '';
-  onChange: any = () => {};
-  onTouched: any = () => {};
+  onChange: any = () => { };
+  onTouched: any = () => { };
 
   writeValue(value: string): void {
     this.value = value;
@@ -49,8 +49,13 @@ export class SelectInputComponent implements ControlValueAccessor {
   onValueChange(e: Event) {
     const value = (e.target as HTMLSelectElement).value;
     this.value = value;
-    this.onChange(this.value); 
-    this.onTouched(); 
-    this.change.emit(this.value); 
+    this.onChange(this.value);
+    this.onTouched();
+    this.change.emit(this.value);
+  };
+
+  reset(input: HTMLSelectElement) {
+    input.value = '';
+    input.dispatchEvent(new Event('change', { bubbles: true }));
   }
 }
