@@ -2,7 +2,7 @@
 @if (!(isLogged$ | async)) {
   <button
     (click)="slideDownInputs = !slideDownInputs"
-    class="login-button"
+    class="login-button btn"
   >
     Login >>
   </button>
@@ -22,7 +22,7 @@
       [errorMessage]="userPwErr"
     />
     <button
-      class="login-submit-button"
+      class="login-submit-button btn"
       (click)="login()"
     >
       Login
@@ -30,13 +30,13 @@
   </div>
 } @else {
   <a
-    class="create-house-button"
+    class="create-house-button btn"
     routerLink="/create"
   >
     Create House
   </a>
   <button
-    class="logout-button"
+    class="logout-button btn"
     (click)="logout()"
   >
     Logout

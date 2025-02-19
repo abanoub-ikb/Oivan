@@ -1,80 +1,82 @@
 @if (tableData.length) {
-    <div class="overflow-x-auto shadow-md">
-      <table
-        class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 table-auto"
-      >
-        <thead
-          class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+    <div class="overflow-x-auto">
+      <div class=" shadow-md">
+        <table
+          class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 table-auto"
         >
-          <tr class="">
-            @for (header of tableHeader$ |async; track header; let i = $index) {
-            <th scope="col" class="px-6 py-3">
-              @if ([3].includes(i)) {
-              <div class="flex items-center">
-                {{ header }}
-                <div class="flex flex-col ms-2">
-                  <button
-                    (click)="sort('price', 'desc')"
-                    class="text-[10px] cursor-pointer"
-                    title="sort asc"
-                  >
-                    &#11205;
-                  </button>
-                  <button
-                    (click)="sort('price', 'asc')"
-                    class="text-[10px] cursor-pointer"
-                    title="sort desc"
-                  >
-                    &#11206;
-                  </button>
-                </div>
-              </div>
-              } @else {
-              {{ header }}
-              }
-            </th>
-            }
-          </tr>
-        </thead>
-        <tbody class="">
-          @for (row of sortedData$ | async; track row.house_number) {
-          <tr
-            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200"
+          <thead
+            class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
           >
-            <th
-              scope="row"
-              class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+            <tr class="">
+              @for (header of tableHeader$ |async; track header; let i = $index) {
+              <th scope="col" class="px-6 py-3">
+                @if ([3].includes(i)) {
+                <div class="flex items-center">
+                  {{ header }}
+                  <div class="flex flex-col ms-2">
+                    <button
+                      (click)="sort('price', 'desc')"
+                      class="text-[10px] cursor-pointer"
+                      title="sort asc"
+                    >
+                      &#11205;
+                    </button>
+                    <button
+                      (click)="sort('price', 'asc')"
+                      class="text-[10px] cursor-pointer"
+                      title="sort desc"
+                    >
+                      &#11206;
+                    </button>
+                  </div>
+                </div>
+                } @else {
+                {{ header }}
+                }
+              </th>
+              }
+            </tr>
+          </thead>
+          <tbody class="">
+            @for (row of sortedData$ | async; track row.house_number) {
+            <tr
+              class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200"
             >
-              {{ row.house_number }}
-            </th>
-            <td class="px-6 py-4">{{ row.block_number }}</td>
-            <td class="px-6 py-4">{{ row.land_number }}</td>
-            <td class="px-6 py-4">{{ row.price | number }}</td>
-            <td class="px-6 py-4">{{ row.status }}</td>
-            @if (isAdmin$ |async) {
-            <td class="px-6 py-4">
-              <a
-                [routerLink]="['edit', row.house_number]"
-                class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                >Edit</a
+              <th
+                scope="row"
+                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
-            </td>
+                {{ row.house_number }}
+              </th>
+              <td class="px-6 py-4">{{ row.block_number }}</td>
+              <td class="px-6 py-4">{{ row.land_number }}</td>
+              <td class="px-6 py-4">{{ row.price | number }}</td>
+              <td class="px-6 py-4">{{ row.status }}</td>
+              @if (isAdmin$ |async) {
+              <td class="px-6 py-4">
+                <a
+                  [routerLink]="['edit', row.house_number]"
+                  class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                  >Edit</a
+                >
+              </td>
+              }
+            </tr>
             }
-          </tr>
-          }
-        </tbody>
-      </table>
-    </div>
-    <div class="flex gap-1 mt-1">
-      @for (item of (tableData$ | async)??[] | pagesCount; track $index) {
-      <button
-        class="px-2 bg-[var(--primary-color)] text-[var(--text-color)] rounded-sm"
-        [class]="(currentPage$ | async) == item ? 'bg-[var(--primary-color)]':'bg-[var(--secondary-color)]' "
-        (click)="setActivePage(item)"
-      >
-        {{item}}
-      </button>
-      }
+          </tbody>
+        </table>
+      </div>
+      <div class="flex gap-1 mt-1">
+        @for (item of (tableData$ | async)??[] | pagesCount; track $index) {
+        <button
+          class="px-2 bg-[var(--primary-color)] text-[var(--text-color)] rounded-sm"
+          [class]="(currentPage$ | async) == item ? 'bg-[var(--primary-color)]':'bg-[var(--secondary-color)]' "
+          (click)="setActivePage(item)"
+        >
+          {{item}}
+        </button>
+        }
+      </div>
     </div>
     
     }@else {

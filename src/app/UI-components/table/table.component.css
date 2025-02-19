@@ -1,0 +1,7 @@
+table th:first-child{
+    position: sticky;
+    left: 0;
+    background-color:var(--primary-color);
+    color: white
+}
+

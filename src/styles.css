@@ -16,7 +16,7 @@
 :root.dark {
   --background-color: #121212;
   --text-color: #e5e7eb;
-  --primary-color: #8b5cf6;
+  --primary-color: #6366f1;
   --secondary-color: #94a3b8;
   --accent-color: #f87171;
   --success-color: #10b981;
@@ -39,6 +39,10 @@ input::placeholder {
 
 button {
   cursor: pointer;
+}
+
+.btn{
+  background-color: var(--primary-color) !important;
 }
 
 .flex {
