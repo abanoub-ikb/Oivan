@@ -1,7 +1,30 @@
 table th:first-child{
     position: sticky;
-    left: 0;
+    left: -8px;
     background-color:var(--primary-color);
     color: white
 }
 
+tbody tr:nth-child(even){
+    background-color: #6a7282;
+}
+
+table,th,td{
+    border-collapse: collapse;
+    padding: 1rem;
+    text-align: left;
+}
+
+thead tr{
+    border-bottom: solid white 1px;
+}
+
+.table-container::-webkit-scrollbar{
+    width:.5rem;
+    height: .5rem;
+}
+
+.table-container::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: var(--primary-color);
+}
