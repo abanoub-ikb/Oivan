@@ -1,0 +1,9 @@
+<div class="accordion overflow-hidden border">
+    <button (click)="toggleColabse()" class="acc-header p-2 border w-full text-start cursor-pointer">
+        {{header}} house type
+    </button>
+
+    <div [hidden]="!isCollapsed" class="acc-body p-4 flex flex-col gap-4">
+        <ng-content/>
+    </div>
+</div>

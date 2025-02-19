@@ -1,0 +1,54 @@
+<div class="grid md:grid-cols-5 grid-cols-2 mb-2 gap-1 items-center">
+  <app-select-input
+    [label]="'Block Number'"
+    name="block_number"
+    [options]="(blocks$ | async) ?? []"
+    [(ngModel)]="filters.block_number"
+    (change)="filterHouses()"
+  />
+
+  <app-select-input
+    [label]="'Land Number'"
+    name="land_number"
+    [options]="(landNumbers$ | async) ?? []"
+    [(ngModel)]="filters.land_number"
+    (change)="filterHouses()"
+  />
+
+  <app-select-input
+    [label]="'From'"
+    name="min"
+    [options]="(minToMaxPrices$ | async) ?? []"
+    [(ngModel)]="filters.min"
+    (change)="filterHouses()"
+  />
+
+  <app-select-input
+    [label]="'To'"
+    name="max"
+    [options]="(MaxToMinPrices$ | async) ?? []"
+    [(ngModel)]="filters.max"
+    (change)="filterHouses()"
+  />
+
+  <button
+    (click)="clearFilters()"
+    class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-md text-sm px-3 py-2 text-center md:col-span-1 md:w-[50%] col-span-2"
+    aria-label="Clear Filters"
+  >
+    Clear Filters
+  </button>
+</div>
+
+<div class="flex flex-col gap-2">
+  @if (filteredHousesByModel$ | async; as data) { @for (item of data | keyvalue;
+  track item.key; let index = $index) {
+  <app-accordion [isCollapsed]="index === 0" [header]="item.key">
+    @if (modelInfoMap && modelInfoMap[item.key]) {
+    <app-model-info [modelInfo]="modelInfoMap[item.key]" />
+    }
+
+    <app-table [tableData]="item.value"></app-table>
+  </app-accordion>
+  } }
+</div>

@@ -1,1 +1,34 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --accent-color: #ffc107;
+  }
+
+  :root.dark {
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --primary-color: #bb86fc;
+    --secondary-color: #03dac6;
+    --accent-color: #ffc107;
+  }
+  
+  body {
+    font-family: "Roboto Slab", serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  input::placeholder{
+    color: var(--text-color);
+  }
+
+  button{
+    cursor: pointer;
+  }
+
+ 

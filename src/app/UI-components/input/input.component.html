@@ -1,0 +1,21 @@
+
+<div class="input-container relative">
+    @if (label) {
+      <label class="input-label">{{ label }}</label>
+    }
+    <input
+      [type]="type"
+      [placeholder]="placeholder"
+      [(ngModel)]="value"
+      [disabled]="disabled"
+      [required]="required"
+      (ngModelChange)="onChange($event)"
+      (blur)="onTouched()"
+      class="border rounded-sm p-1 outline-none"
+      [class]="class"
+      [class]="errorMessage ? 'border-red-500':''"
+    />
+    @if (errorMessage) {
+      <p class="text-red-500 text-sm absolute">{{ errorMessage }}</p>
+    }
+  </div>

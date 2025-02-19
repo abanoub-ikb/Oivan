@@ -1,0 +1,15 @@
+<div class="flex flex-col md:flex-row h-[50vh] w-full">
+    <div class="md:w-[50%] h-full">
+      <h3 class="font-bold text-xl">{{ modelInfo.title }}</h3>
+      <p>{{ modelInfo.description }}</p>
+    </div>
+    <div class="md:w-[50%] h-full">
+      <img
+        loading="lazy"
+        class="w-full h-full block object-cover"
+        (error)="onImageError($event)"
+        [src]="modelInfo.banner"
+      />
+    </div>
+  </div>
+  
