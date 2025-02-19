@@ -9,15 +9,14 @@ export class AuthService {
   private tokenSubject = new BehaviorSubject<string | null>(this.getTokenFromStorage());
   token$ = this.tokenSubject.asObservable();
 
-  isAdmin$: Observable<boolean> = this.token$.pipe(map(token => !!token)); 
+  isAdmin$: Observable<boolean> = this.token$.pipe(map(token => !!token));
 
-  constructor() {}
+  constructor() { }
 
-  private getTokenFromStorage(): string | null {
+   getTokenFromStorage(): string | null {
     try {
       return localStorage.getItem('token') || null;
     } catch (error) {
-      console.error('Error retrieving token from storage:', error);
       return null;
     }
   }

@@ -20,10 +20,11 @@ export class SelectInputComponent implements ControlValueAccessor {
   @Input() disabled: boolean = false;
   @Input() required: boolean = false;
   @Input() label: string = '';
+  @Input() placeHolder: string = '';
   @Input() errorMessage: string = '';
   @Input() class: string = '';
   @Input() name: string = '';
-  @Output() change = new EventEmitter<string>(); // Custom change event
+  @Output() change = new EventEmitter<string>(); 
 
   value: string = '';
   onChange: any = () => {};

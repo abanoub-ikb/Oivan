@@ -1,43 +1,44 @@
-@if(!(isLogged$ | async)){
 
-<button
-  (click)="slideDownInputs = !slideDownInputs"
-  class="md:hidden block  bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-md text-sm px-3 py-2"
->
-  Login >>
-</button>
-<div
-  class="flex md:static md:flex-row md:bg-transparent md:gap-2 absolute z-3 transition-all duration-300 top-[-100%] end-0 bg-[var(--primary-color)] flex-col gap-6 p-3 rounded-md"
-  [class]="slideDownInputs ? 'top-[3.5rem]' : 'top-[-100%]'"
->
-  <app-input
-    placeholder="user name"
-    [(ngModel)]="user.username"
-    [errorMessage]="userNameErr"
-  />
-  <app-input
-    placeholder="password"
-    type="password"
-    [(ngModel)]="user.password"
-    [errorMessage]="userPwErr"
-  />
+@if (!(isLogged$ | async)) {
   <button
-    class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-md text-sm px-3"
-    (click)="login()"
+    (click)="slideDownInputs = !slideDownInputs"
+    class="login-button"
   >
-    Login
+    Login >>
   </button>
-</div>
-}@else {
-<a
-  class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-md text-sm px-3 py-2 text-center md:col-span-1 md:w-[50%] cursor-pointer col-span-2 me-2"
-  routerLink="/create"
-  >Create House</a
->
-<button
-  class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-md text-sm px-3 py-2"
-  (click)="logout()"
->
-  Logout
-</button>
+  <div
+    class="login-container"
+    [class]="slideDownInputs ? 'login-container-visible' : 'login-container-hidden'"
+  >
+    <app-input
+      placeholder="user name"
+      [(ngModel)]="user.username"
+      [errorMessage]="userNameErr"
+    />
+    <app-input
+      placeholder="password"
+      type="password"
+      [(ngModel)]="user.password"
+      [errorMessage]="userPwErr"
+    />
+    <button
+      class="login-submit-button"
+      (click)="login()"
+    >
+      Login
+    </button>
+  </div>
+} @else {
+  <a
+    class="create-house-button"
+    routerLink="/create"
+  >
+    Create House
+  </a>
+  <button
+    class="logout-button"
+    (click)="logout()"
+  >
+    Logout
+  </button>
 }

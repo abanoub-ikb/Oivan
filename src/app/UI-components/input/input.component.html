@@ -1,5 +1,5 @@
 
-<div class="input-container relative">
+<div class="input-container">
     @if (label) {
       <label class="input-label">{{ label }}</label>
     }
@@ -11,7 +11,7 @@
       [required]="required"
       (ngModelChange)="onChange($event)"
       (blur)="onTouched()"
-      class="border rounded-sm p-1 outline-none"
+      class="border rounded-sm p-1 outline-none w-full"
       [class]="class"
       [class]="errorMessage ? 'border-red-500':''"
     />

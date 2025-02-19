@@ -1,15 +1,11 @@
-interface IAuthBase<T> {
-    data: {
-      type: 'auth';
-      attributes: T;
-    };
-  }
+import { IRequestBody } from "./api-request.model";
+
   
   export interface IUser {
     username: string;
     password: string;
   }
   
-  export interface ILoginReq extends IAuthBase<IUser> {}
+  export interface ILoginReq extends IRequestBody<IUser> {}
   
-  export interface ILoginRes extends IAuthBase<{ token: string }> {}
+  export interface ILoginRes extends IRequestBody<{ token: string }> {}

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { IMedia, ModelInfo } from '../../Models/house-model.model';
+import { IMedia } from '../../Models/house-model.model';
 
+ 
 @Component({
   selector: 'app-model-info',
   imports: [],

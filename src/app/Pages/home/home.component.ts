@@ -7,7 +7,7 @@ import { SelectInputComponent } from "../../UI-components/select-input/select-in
 import { BehaviorSubject, map, combineLatest, Subject, takeUntil } from 'rxjs';
 import { IHouse, IHouseAttributes } from '../../Models/house.model';
 import { FormsModule } from '@angular/forms';
-import { IMedia, ModelInfo } from '../../Models/house-model.model';
+import { ModelInfo } from '../../Models/house-model.model';
 import { ModelInfoComponent } from "../../UI-components/model-info/model-info.component";
 
 type Filters = Partial<IHouseAttributes> & { min: number | string, max: number | string };
@@ -93,7 +93,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       min: '',
       max: '',
     };
-    this.houses$.next(this.houses$.value); // Trigger re-filtering
+    this.houses$.next(this.houses$.value);
   };
 
   filterHouses() {

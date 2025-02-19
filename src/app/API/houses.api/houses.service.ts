@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { IHouse } from '../../Models/house.model';
+import { IHouse, IHouseReq } from '../../Models/house.model';
 import { map, tap } from 'rxjs';
 import { StoreService } from '../../Store/store.service';
 
@@ -18,6 +18,13 @@ export class HousesService {
       map(res => res.data),
       tap(houses => this.store.setHouses(houses))
     );
+  };
+
+  createHouse(data:IHouseReq){
+    return this.http.post<{ data: IHouse }>(this.apiUrl,data).pipe(
+      map(res => res.data),
+      tap(house=>this.store.addHouse(house))
+    )
   };
 
 }

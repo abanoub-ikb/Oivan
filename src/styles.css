@@ -1,34 +1,54 @@
 @import "tailwindcss";
 
 :root {
-    --background-color: #ffffff;
-    --text-color: #000000;
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
-    --accent-color: #ffc107;
-  }
+  --background-color: #f5f7fa;
+  --text-color: #2d3748;
+  --primary-color: #6366f1;
+  --secondary-color: #64748b;
+  --accent-color: #ef4444;
+  --success-color: #22c55e;
+  --warning-color: #facc15;
+  --error-color: #f43f5e;
+  --card-background: #ffffff;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
 
-  :root.dark {
-    --background-color: #121212;
-    --text-color: #e0e0e0;
-    --primary-color: #bb86fc;
-    --secondary-color: #03dac6;
-    --accent-color: #ffc107;
-  }
-  
-  body {
-    font-family: "Roboto Slab", serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
+:root.dark {
+  --background-color: #121212;
+  --text-color: #e5e7eb;
+  --primary-color: #8b5cf6;
+  --secondary-color: #94a3b8;
+  --accent-color: #f87171;
+  --success-color: #10b981;
+  --warning-color: #fbbf24;
+  --error-color: #ef4444;
+  --card-background: #1e1e1e;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-  input::placeholder{
-    color: var(--text-color);
-  }
+body {
+  font-family: "Roboto Slab", serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-  button{
-    cursor: pointer;
-  }
+input::placeholder {
+  color: var(--text-color);
+}
 
- 
+button {
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}

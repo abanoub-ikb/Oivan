@@ -1,0 +1,9 @@
+nav{
+    padding: 1rem;
+    height: 8vh;
+    background-color: var(--background-color);
+}
+
+.btns{
+    gap: 1rem;
+}

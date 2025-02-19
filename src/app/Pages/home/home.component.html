@@ -1,6 +1,6 @@
-<div class="grid md:grid-cols-5 grid-cols-2 mb-2 gap-1 items-center">
+<div class="filter-container">
   <app-select-input
-    [label]="'Block Number'"
+    [placeHolder]="'Block Number'"
     name="block_number"
     [options]="(blocks$ | async) ?? []"
     [(ngModel)]="filters.block_number"
@@ -8,7 +8,7 @@
   />
 
   <app-select-input
-    [label]="'Land Number'"
+    [placeHolder]="'Land Number'"
     name="land_number"
     [options]="(landNumbers$ | async) ?? []"
     [(ngModel)]="filters.land_number"
@@ -16,7 +16,7 @@
   />
 
   <app-select-input
-    [label]="'From'"
+    [placeHolder]="'From'"
     name="min"
     [options]="(minToMaxPrices$ | async) ?? []"
     [(ngModel)]="filters.min"
@@ -24,7 +24,7 @@
   />
 
   <app-select-input
-    [label]="'To'"
+    [placeHolder]="'To'"
     name="max"
     [options]="(MaxToMinPrices$ | async) ?? []"
     [(ngModel)]="filters.max"
@@ -33,14 +33,14 @@
 
   <button
     (click)="clearFilters()"
-    class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-md text-sm px-3 py-2 text-center md:col-span-1 md:w-[50%] col-span-2"
+    class="clear-filters-button"
     aria-label="Clear Filters"
   >
     Clear Filters
   </button>
 </div>
 
-<div class="flex flex-col gap-2">
+<div class="accordion-container">
   @if (filteredHousesByModel$ | async; as data) { @for (item of data | keyvalue;
   track item.key; let index = $index) {
   <app-accordion [isCollapsed]="index === 0" [header]="item.key">

@@ -1,0 +1,109 @@
+
+.login-button {
+    display: block;
+    background-color: #15803d; 
+    color: white;
+    font-weight: 500;
+    font-size: 0.875rem; 
+    padding: 0.5rem 0.75rem; 
+    border-radius: 0.375rem; 
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .login-button:hover {
+    background-color: #166534; 
+  }
+  
+  .login-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(74, 222, 128, 0.5); 
+  }
+  
+ 
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; 
+    padding: 0.75rem; 
+    background-color: var(--primary-color);
+    border-radius: 0.375rem; 
+    position: absolute;
+    top: -100%;
+    right: 10px;
+    z-index: 3;
+    transition: top 0.3s ease-in-out;
+  }
+  
+  .login-container-visible {
+    top: 3.5rem; 
+  }
+  
+  .login-container-hidden {
+    top: -100%; 
+  }
+  
+ 
+  .login-submit-button {
+    background-color: #15803d; 
+    color: white;
+    font-weight: 500;
+    font-size: 0.875rem; 
+    padding: 0.5rem 0.75rem; 
+    border-radius: 0.375rem; 
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .login-submit-button:hover {
+    background-color: #166534; 
+  }
+  
+  .login-submit-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(74, 222, 128, 0.5);
+  }
+  
+
+  .create-house-button {
+    background-color: #15803d; 
+    color: white;
+    font-weight: 500;
+    font-size: 0.875rem; 
+    padding: 0.5rem 0.75rem; 
+    border-radius: 0.375rem; 
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s;
+    margin-right: 0.5rem; 
+  }
+  
+  .create-house-button:hover {
+    background-color: #166534; 
+  }
+  
+  .create-house-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(74, 222, 128, 0.5); 
+  }
+  
+
+  .logout-button {
+    background-color: #15803d; 
+    color: white;
+    font-weight: 500;
+    font-size: 0.875rem; 
+    padding: 0.5rem 0.75rem; 
+    border-radius: 0.375rem; 
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .logout-button:hover {
+    background-color: #166534; 
+  }
+  
+  .logout-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(74, 222, 128, 0.5); 
+  }

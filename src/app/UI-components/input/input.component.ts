@@ -1,5 +1,5 @@
 
-import { Component, forwardRef, Input } from '@angular/core';
+import { Component, EventEmitter, forwardRef, Input, Output } from '@angular/core';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -23,6 +23,7 @@ export class InputComponent implements ControlValueAccessor {
   @Input() label: string = '';
   @Input() errorMessage: string|null = '';
   @Input() class:string = '';
+  @Output() change = new EventEmitter<Event>();
 
   value: string = '';
   onChange: any = () => {};
@@ -48,6 +49,7 @@ export class InputComponent implements ControlValueAccessor {
     const target = event.target as HTMLInputElement;
     this.value = target.value;
     this.onChange(this.value);
+    this.change.emit(event)
     this.onTouched();
   }
 }

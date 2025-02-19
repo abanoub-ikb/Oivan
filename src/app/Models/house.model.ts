@@ -1,13 +1,15 @@
+import { IRequestBody } from "./api-request.model"
+
 export interface IHouse {
-    id: string
+    id?: string
     type: string
     links: ILinks
     attributes: IHouseAttributes
-  }
+  };
   
   export interface ILinks {
     self: string
-  }
+  };
   
   export interface IHouseAttributes {
     house_number: string
@@ -17,5 +19,7 @@ export interface IHouse {
     house_type: string
     model: string
     status: string
-  }
+  };
+
+export interface IHouseReq extends IRequestBody<IHouseAttributes> {}
   

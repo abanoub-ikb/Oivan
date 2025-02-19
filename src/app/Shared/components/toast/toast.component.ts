@@ -1,11 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
+import { ToastService } from '../../services/successToastService/toast.service';
+import { AsyncPipe } from '@angular/common';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-toast',
-  imports: [],
   templateUrl: './toast.component.html',
-  styleUrl: './toast.component.css'
+  styleUrls: ['./toast.component.css'],
+  imports: [AsyncPipe]
 })
 export class ToastComponent {
+  @Input() message: string = 'Success';
+  toastService = inject(ToastService);
+  isVisible$ = this.toastService.isVisible$;
+
+  hide() {
+    this.toastService.hideToast()
+  };
 
 }

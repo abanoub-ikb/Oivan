@@ -1,1 +1,52 @@
-<app-breadcrumb/>
+<app-breadcrumb />
+<form [formGroup]="houseForm" (ngSubmit)="onSubmit()">
+  <div class="create-form">
+    <app-input
+      formControlName="house_number"
+      label="House Number"
+      [errorMessage]="getErrorMessage('house_number')"
+    />
+    <app-input
+      class="form-control"
+      formControlName="block_number"
+      label="Block Number"
+      [errorMessage]="getErrorMessage('block_number')"
+    />
+    <app-input
+      formControlName="land_number"
+      label="Land Number"
+      [errorMessage]="getErrorMessage('land_number')"
+    />
+    <app-input
+      formControlName="price"
+      label="Price"
+      [type]="'number'"
+      [errorMessage]="getErrorMessage('price')"
+    />
+    <app-select-input
+      formControlName="house_type"
+      [options]="houseType"
+      label="House Type"
+      [errorMessage]="getErrorMessage('house_type')"
+    />
+    <app-select-input
+      formControlName="model"
+      [options]="(models$ | async) || []"
+      label="House Model"
+      [errorMessage]="getErrorMessage('model')"
+    />
+    <app-select-input
+      formControlName="status"
+      [options]="status"
+      label="Status"
+      [errorMessage]="getErrorMessage('status')"
+    />
+  </div>
+  <button
+    class="btn bg-[var(--primary-color)] p-2 rounded-sm"
+    type="submit"
+    
+  >
+    Create House
+  </button>
+</form>
