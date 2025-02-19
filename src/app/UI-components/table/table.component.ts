@@ -4,7 +4,8 @@ import { RouterLink } from '@angular/router';
 import { BehaviorSubject, combineLatest, map, Observable } from 'rxjs';
 import { AuthService } from '../../Shared/services/auth/auth.service';
 import { IHouse, IHouseAttributes } from '../../Models/house.model';
-import { PagesCountPipe } from '../../pipes/pages-count.pipe';
+import { PagesCountPipe } from '../../Pipes/pages-count.pipe';
+
 
 @Component({
   selector: 'app-table',
